@@ -5,17 +5,19 @@ title: "Easy and Intuitive Understanding of Bayesian Statistics - part 1: The Qu
 tags:
   - statistics
   - bayesian
-  - intuitive
-excerpt: "One common trap when trying to understand Bayesian Statistics is to start with the Bayes theorem. I find it much more helpful to start with the notion of “beliefs”."
+  - intuitions
+excerpt: "If you try to understand Bayesian Statistics, do not start with the Bayes theorem."
 ---
 
-In 2023, I joined our effort of developing the Early Stopping feature based on Bayesian statistics. While I was somehow comfortable with basic statistics, I had little knowledge or intuition about the Bayesian approach. My understanding and my ability to form critical opinions were, as a result, quite hindered. I spent some time after to self educate and had some good “gotcha” moments that I would like to share, in order to help other engineers like me to better succeed when working on Bayesian stuffs.
+The common trap when trying to understand Bayesian Statistics is to start with the Bayes theorem.
 
-In this first note, I will explain, in my words, the essential intuitions behind Bayesian statistics.
+I felt into this trap last year when I joint a project leveraging Bayesian Statistics to develop some advanced Experimentation features. While I was somehow comfortable with basic statistics, I had little knowledge or intuition about the Bayesian approach. My understanding and my ability to form critical opinions were, as a result, quite hindered. I spent some time after to self educate and had some good “gotcha” moments that I would like to share, in order to help other engineers like me to better succeed when working on Bayesian stuffs. 
+
+In this note I will explain, in my words, the essential intuitions behind Bayesian statistics.
 
 ## It is about beliefs, and the quantification of beliefs.
 
-One common trap when trying to understand Bayesian Statistics is to start with the Bayes theorem. I find it much more helpful to start with the notion of “beliefs”.
+Again, the common trap when trying to understand Bayesian Statistics is to start with the Bayes theorem. I find it much more helpful to start with the notion of “beliefs”.
 
 **In everyday life and work, we each hold different beliefs, at various degrees**. When we say “It is likely to rain this afternoon”, we express our degree of belief about the weather to come. Beliefs can also be about things that already happened, such as “I think I left the key on the kitchen table, or maybe it is still in my bag”.
 

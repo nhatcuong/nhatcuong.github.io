@@ -13,7 +13,7 @@ In 2023, I joined our effort of developing the Early Stopping feature based on B
 
 In this first note, I will explain, in my words, the essential intuitions behind Bayesian statistics.
 
-# It is about beliefs, and the quantification of beliefs.
+## It is about beliefs, and the quantification of beliefs.
 
 One common trap when trying to understand Bayesian Statistics is to start with the Bayes theorem. I find it much more helpful to start with the notion of “beliefs”.
 
@@ -31,7 +31,7 @@ That’s it.
 
 **That’s the first key intuition behind Bayesian Statistics: there are beliefs and the quantification of those beliefs.**
 
-# In the “Frequentist” approach, you don’t have beliefs, just likelihoods
+## In the “Frequentist” approach, you don’t have beliefs, just likelihoods
 
 The statement above about Bayesian Statistics also depicts its fundamental difference with the Frequentist Statistics (also called Classical or Non-Bayesian Statistics). Frequentists don’t have the concept of “belief”, but only “likelihood”.
 
@@ -41,11 +41,11 @@ It is not that Bayesians don’t have Likelihoods, as one term in the Bayes theo
 
 Likelihoods are objective and depend totally on the observed data. Beliefs are not fully objective, which makes Bayesian Statistics both powerful but controversial.
 
-# The probabilistic distribution of beliefs
+## The probabilistic distribution of beliefs
 
 If we return to our quantification of belief of “I bet 3$ against 1 that I already replied to your email” and normalize it so that the sum makes 1, we have a probabilistic distribution of beliefs, or “hypotheses”, as in the canonical nomenclature.
 
-![Screenshot 2024-04-14 at 00.15.40.png](Understand%20Bayesian%20Statistics%20for%20Engineers%20part%20%20a87ba508bfbb4dfa94adfb23bc84d8c8/Screenshot_2024-04-14_at_00.15.40.png)
+![Probabilistic distribution of beliefs](/assets/images/understanding_bayesian/probabilistic_distribution_beliefs.png)
 
 This is the next important piece of intuition behind Bayesian Statistics: probabilities can be attributed to beliefs, aka hypotheses. This type of distribution has different interpretations than the classic probabilistic distribution of “events”.
 
@@ -53,11 +53,11 @@ Just like the probability of events, the probabilistic distribution of beliefs c
 
 Something we very usually want to hypothesize about is a “conversion rate” of an ad, of a mailing list, or more generally, the parameter of a binomial process. For this, the most basic way to go is the Beta binomial distribution, that we will observe next.
 
-# Case in point: the Beta binomial distribution
+## Case in point: the Beta binomial distribution
 
 The Beta binomial distribution is so important and popular that it is represented in the icon for the [Wikipedia’s series on Bayesian Statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
 
-![Screenshot 2024-04-15 at 11.16.57.png](Understand%20Bayesian%20Statistics%20for%20Engineers%20part%20%20a87ba508bfbb4dfa94adfb23bc84d8c8/d917f30b-9eee-4a47-95fc-670f6f264097.png)
+![Beta binomial representing Bayesian Stats in wikipedia](/assets/images/understanding_bayesian/beta_binomial_wiki.png)
 
 Let’s say we have an ad that we want to estimate the click rate. We printed it 20 times, got 3 clicks and 17 non-clicks. The observed click rate is 0.15, but what can we say intuitively about the true click rate?
 
@@ -67,21 +67,19 @@ Let’s say we have an ad that we want to estimate the click rate. We printed it
 
 What we describe here corresponds to the distribution Beta(3, 17). I’ll leave the Math for later, but this distribution gives the following quantification of the terms “quite likely”, “less plausible” and “extremely unlikely” above.
 
-![green:  P(0.01 ≤ true click rate ≤ 0.07) = 0.148 (less plausible)
-red:      P(0.12 ≤ true click rate ≤ 0.18) = 0.284 (quite likely)
-purple: P(0.4 ≤ true click rate) = 0.005 (extremely unlikely)](Understand%20Bayesian%20Statistics%20for%20Engineers%20part%20%20a87ba508bfbb4dfa94adfb23bc84d8c8/ef2dee8e-9957-4f37-9900-2ccebab08315.png)
+![Beta binomial in 3 zones](/assets/images/understanding_bayesian/beta_binomial_3zones.png)
 
-green:  P(0.01 ≤ true click rate ≤ 0.07) = 0.148 (less plausible)
-red:      P(0.12 ≤ true click rate ≤ 0.18) = 0.284 (quite likely)
+green: P(0.01 ≤ true click rate ≤ 0.07) = 0.148 (less plausible)\
+red: P(0.12 ≤ true click rate ≤ 0.18) = 0.284 (quite likely)\
 purple: P(0.4 ≤ true click rate) = 0.005 (extremely unlikely)
 
 Now, let’s say we have printed the ad 100 times and got 15 clicks. Can we be more confident about the range of 0.12 and 0.18? Yes, we should, as we get more data in this direction. Here, we will draw the beta binomial with a = 15 and b = 85. We notice that the density around 0.15 is much much higher. As the total area under the curve is still 1, we get P(0.12 ≤ true click rate ≤ 0.18) = 0.577. Our degree of belief in this range of true value is now close to 60%.
 
-![Screenshot 2024-04-15 at 10.41.48.png](Understand%20Bayesian%20Statistics%20for%20Engineers%20part%20%20a87ba508bfbb4dfa94adfb23bc84d8c8/039153ee-c9ba-4b19-99f6-4ceec75ab9db.png)
+![Beta binomial more samples](/assets/images/understanding_bayesian/beta_binomial_more_samples.png)
 
 To better observe the dynamic when we change from 20 impressions to 100 impressions, we can plot the 2 distribution together, and get this:
 
-![Screenshot 2024-04-15 at 10.53.46.png](Understand%20Bayesian%20Statistics%20for%20Engineers%20part%20%20a87ba508bfbb4dfa94adfb23bc84d8c8/119d8bcd-6d1e-41b4-b421-792754da0483.png)
+![Beta binomial differences](/assets/images/understanding_bayesian/beta_binomial_difference.png)
 
 We can make the following observations:
 
